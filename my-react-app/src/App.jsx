@@ -53,6 +53,12 @@ const testimonials = [
   },
 ]
 
+const stats = [
+  { label: "Design tokens", value: "120+" },
+  { label: "Prebuilt sections", value: "34" },
+  { label: "Teams shipped", value: "820" },
+]
+
 function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -200,6 +206,22 @@ function App() {
                 </ul>
               </CardContent>
             </Card>
+          ))}
+        </section>
+
+        <section className="grid gap-6 rounded-3xl border border-dashed border-border/60 bg-card/70 px-8 py-10 text-center md:grid-cols-3 md:text-left">
+          {stats.map(({ label, value }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center gap-2 md:items-start"
+            >
+              <span className="text-3xl font-semibold text-foreground md:text-4xl">
+                {value}
+              </span>
+              <span className="text-sm uppercase tracking-wide text-muted-foreground">
+                {label}
+              </span>
+            </div>
           ))}
         </section>
 
