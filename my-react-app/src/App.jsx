@@ -61,6 +61,13 @@ const stats = [
 
 const logos = ["Orbit", "Fieldset", "Nova", "Anchor", "Aurelian"]
 
+const navLinks = [
+  { label: "Features", href: "#features" },
+  { label: "Showcase", href: "#showcase" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#contact" },
+]
+
 function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -79,18 +86,15 @@ function App() {
             </div>
           </div>
           <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a className="transition-colors hover:text-foreground" href="#features">
-              Features
-            </a>
-            <a className="transition-colors hover:text-foreground" href="#showcase">
-              Showcase
-            </a>
-            <a className="transition-colors hover:text-foreground" href="#pricing">
-              Pricing
-            </a>
-            <a className="transition-colors hover:text-foreground" href="#contact">
-              Contact
-            </a>
+            {navLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                className="transition-colors hover:text-foreground"
+                href={href}
+              >
+                {label}
+              </a>
+            ))}
           </nav>
           <div className="flex items-center gap-3">
             <Button variant="ghost">Sign in</Button>
