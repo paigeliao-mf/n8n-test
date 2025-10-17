@@ -2,8 +2,11 @@ import {
   ArrowRight,
   Cloud,
   LayoutDashboard,
+  Palette,
+  Puzzle,
   ShieldCheck,
   Sparkles,
+  Timer,
   Zap,
 } from "lucide-react"
 
@@ -68,6 +71,24 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ]
 
+const highlights = [
+  {
+    title: "Brand ready palettes",
+    description: "Swap a single token to recolor every section instantly.",
+    icon: Palette,
+  },
+  {
+    title: "Marketing-friendly copy",
+    description: "Guided prompts help your team ship messaging faster.",
+    icon: Puzzle,
+  },
+  {
+    title: "Measured launch velocity",
+    description: "Track approvals, staging, and go-live in one workspace.",
+    icon: Timer,
+  },
+]
+
 function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -127,6 +148,22 @@ function App() {
               <Button size="lg" variant="outline">
                 View live demo
               </Button>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {highlights.map(({ title, description, icon: Icon }) => (
+                <div
+                  key={title}
+                  className="flex items-start gap-3 rounded-xl border border-border/60 bg-card/70 p-4 shadow-sm"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">{title}</p>
+                    <p className="text-sm text-muted-foreground">{description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="flex items-center gap-6 pt-2 text-sm text-muted-foreground">
               <div className="flex -space-x-3">
