@@ -53,6 +53,14 @@ const testimonials = [
   },
 ]
 
+const stats = [
+  { label: "Design tokens", value: "120+" },
+  { label: "Prebuilt sections", value: "34" },
+  { label: "Teams shipped", value: "820" },
+]
+
+const logos = ["Orbit", "Fieldset", "Nova", "Anchor", "Aurelian"]
+
 function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -129,6 +137,21 @@ function App() {
               </div>
               Trusted by design teams shipping weekly.
             </div>
+            <div className="mt-6 rounded-2xl border border-border/60 bg-card/80 p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                Teams using Lumen
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-4 text-sm font-medium text-muted-foreground sm:gap-6">
+                {logos.map((brand) => (
+                  <span
+                    key={brand}
+                    className="rounded-full border border-border px-4 py-2 text-foreground/80 shadow-sm backdrop-blur"
+                  >
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="relative">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/20 via-secondary/20 to-transparent blur-2xl" />
@@ -200,6 +223,22 @@ function App() {
                 </ul>
               </CardContent>
             </Card>
+          ))}
+        </section>
+
+        <section className="grid gap-6 rounded-3xl border border-dashed border-border/60 bg-card/70 px-8 py-10 text-center md:grid-cols-3 md:text-left">
+          {stats.map(({ label, value }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center gap-2 md:items-start"
+            >
+              <span className="text-3xl font-semibold text-foreground md:text-4xl">
+                {value}
+              </span>
+              <span className="text-sm uppercase tracking-wide text-muted-foreground">
+                {label}
+              </span>
+            </div>
           ))}
         </section>
 
